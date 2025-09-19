@@ -1,2 +1,4 @@
 # Evidencia de Proyecto 2
-Le modofique que la comida no debera salirse de la ventana
+
+Cambio 1: Hice que la comida se mueva al azar un paso a la vez sin de salirse de la ventana
+
