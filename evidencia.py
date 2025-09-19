@@ -5,7 +5,14 @@ from freegames import square, vector
 food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
+colors = ["blue", "green", "yellow", "purple", "orange"] 
 
+patch-1
+snake_color = choice(colors)
+food_color = choice([c for c in colors if c != snake_color])
+
+
+main
 def change(x, y):
     """Change snake direction."""
     aim.x = x
@@ -26,6 +33,7 @@ def move():
     """Move snake forward one segment."""
     head = snake[-1].copy()
     head.move(aim)
+    
 
     if not inside(head) or collides_with_body(head, snake):
         square(head.x, head.y, 9, 'red')
@@ -60,10 +68,14 @@ def move():
 
     # Aquí se dibuja la serpiente
     for body in snake:
-        square(body.x, body.y, 9, 'black')
+        square(body.x, body.y, 9, snake_color)
+
+patch-1
+    square(food.x, food.y, 9, food_color)
 
     # Aquí dibujamos la comida
     square(food.x, food.y, 9, 'green')
+main
     update()
     ontimer(move, 100)
 
